@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (locations.get(i).toString() == "Add a new location!") {
-                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent.putExtra("locationNum", i);
+
+                startActivity(intent);
             }
         });
 
